@@ -1,6 +1,10 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
+    <router-link to="/">Home</router-link>
+    <router-link to="/login">Login</router-link>
+    <router-link to="/coins/ethereum">Ethereum</router-link>
+    <router-link to="/coins/bitcoin">Bitcoin</router-link>
     <router-view/>
   </div>
 </template>
