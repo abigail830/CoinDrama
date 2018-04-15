@@ -1,10 +1,9 @@
 <template>
-<div class="dialog">
-    <div class="loginPage">
-        <h1>登录</h1>
-        <el-form>
-            <el-form-item label="user">
-                <el-input type="text" id="user" v-model="formName.user" @blur="inputBlur('user',formName.user)"></el-input>
+  <div class="loginPage">
+    <h1>登录</h1>
+      <el-form>
+        <el-form-item label="user">
+          <el-input type="text" id="user" v-model="formName.user" @blur="inputBlur('user',formName.user)"></el-input>
                 <p>{{formName.userError}}</p>
             </el-form-item>
             <el-form-item label="password">
@@ -14,12 +13,13 @@
             <el-button type="primary" @click="submitForm('formName')" v-bind:disabled="formName.beDisabled">提交</el-button>
             <el-button @click="resetForm">重置</el-button>
         </el-form>
-    </div>
-</div>
+  </div>
 </template>
 
 <script>
 import Axios from 'axios'
+import HeaderBar from '@/components/HeaderBar'
+
 export default {
   name: '',
   data () {
@@ -33,6 +33,10 @@ export default {
       },
       beShow: false// 传值给父组件
     }
+  },
+
+  components: {
+    HeaderBar
   },
   /* props:[
         'fromParent'
@@ -86,5 +90,31 @@ export default {
 </script>
 
 <style>
-
+h1 {
+  font-weight: normal;
+  text-align: left;
+}
+.el-row {
+    margin-bottom: 1px;
+  }
+  .el-col {
+    border-radius: 4px;
+  }
+  .bg-purple-dark {
+    background: #99a9bf;
+  }
+  .bg-purple {
+    background: #d3dce6;
+  }
+  .bg-purple-light {
+    background: #e5e9f2;
+  }
+  .grid-content {
+    border-radius: 4px;
+    min-height: 36px;
+  }
+  .row-bg {
+    padding: 2px 0;
+    background-color: #f9fafc;
+  }
 </style>

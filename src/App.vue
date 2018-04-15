@@ -1,17 +1,26 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-link to="/">Home</router-link>
-    <router-link to="/login">Login</router-link>
-    <router-link to="/coins/ethereum">Ethereum</router-link>
-    <router-link to="/coins/bitcoin">Bitcoin</router-link>
-    <router-view/>
+    <div class="home">
+      <el-container>
+        <el-header>
+          <header-bar/>
+        </el-header>
+        <el-main>
+          <router-view/>
+        </el-main>
+      </el-container>
+    </div>
   </div>
 </template>
 
 <script>
+import HeaderBar from '@/components/HeaderBar'
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    HeaderBar
+  }
 }
 </script>
 
