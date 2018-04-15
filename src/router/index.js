@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Login from '@/components/Login'
 import Coins from '@/components/Coins'
+import NotFoundComponent from '@/components/NotFoundComponent'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
@@ -15,7 +16,7 @@ export default new Router({
     {
       path: '/',
       name: 'HelloWorld',
-      component: HelloWorld
+      component: HelloWorld,
     },
     {
       path: '/login',
@@ -26,6 +27,10 @@ export default new Router({
       path: '/coins/:id',
       name: 'Coins',
       component: Coins
+    },
+    {
+      path: '*',
+      component: NotFoundComponent
     }
   ]
 })

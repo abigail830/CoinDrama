@@ -1,18 +1,20 @@
 <template>
   <div class="loginPage">
-    <h1>Login</h1>
-      <el-form>
-        <el-form-item label="user">
-          <el-input type="text" id="user" v-model="formName.user" @blur="inputBlur('user',formName.user)"></el-input>
-                <p>{{formName.userError}}</p>
-            </el-form-item>
-            <el-form-item label="password">
-                <el-input type="password" id="password" v-model="formName.password" @blur="inputBlur('password',formName.password)"></el-input>
-                <p>{{formName.passwordError}}</p>
-            </el-form-item>
-            <el-button type="primary" @click="submitForm('formName')" v-bind:disabled="formName.beDisabled">Submit</el-button>
-            <el-button @click="resetForm">Reset</el-button>
-        </el-form>
+    <br/>
+    <br/>
+    <br/>
+    <el-form label-width="80px" label-position='left'>
+      <el-form-item label="User">
+        <el-input type="text" id="user" v-model="formName.user" @blur="inputBlur('user',formName.user)"></el-input>
+              <p>{{formName.userError}}</p>
+      </el-form-item>
+      <el-form-item label="Password">
+        <el-input type="password" id="password" v-model="formName.password" @blur="inputBlur('password',formName.password)"></el-input>
+              <p>{{formName.passwordError}}</p>
+      </el-form-item>
+      <el-button type="primary" @click="submitForm('formName')" v-bind:disabled="formName.beDisabled">Submit</el-button>
+      <el-button type="danger" @click="resetForm">Reset</el-button>
+    </el-form>
   </div>
 </template>
 
@@ -93,5 +95,10 @@ export default {
 h1 {
   font-weight: normal;
   text-align: center;
+}
+
+.loginPage {
+  width: 40%;
+  display: inline-block;
 }
 </style>
