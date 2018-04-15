@@ -11,24 +11,14 @@
                     <h1>{{ msg }}</h1>
                 </div>
             </el-col>
-            <el-col :span="2">
-                <div class="grid-content bg-purple">
-                    <router-link to="/">Home</router-link>
-                </div>
-            </el-col>
-            <el-col :span="2">
-                <div class="grid-content bg-purple">
-                    <router-link to="/login">Login</router-link>
-                </div>
-            </el-col>
-            <el-col :span="2">
-                <div class="grid-content bg-purple">
-                    <router-link to="/coins/ethereum">Ethereum</router-link>
-                </div>
-            </el-col>
-            <el-col :span="2">
-                <div class="grid-content bg-purple">
-                    <router-link to="/coins/bitcoin">Bitcoin</router-link>
+            <el-col :span="8">
+                <div class="grid-content">
+                    <el-menu :default-active="$route.path" router class="el-menu-demo" mode="horizontal" @select="handleSelect">
+                        <el-menu-item index="/">Home</el-menu-item>
+                        <el-menu-item index="/login">Login</el-menu-item>
+                        <el-menu-item index="/coins/ethereum">Ethereum</el-menu-item>
+                        <el-menu-item index="/coins/bitcoin">Bitcoin</el-menu-item>
+                    </el-menu>
                 </div>
             </el-col>
         </el-row>
@@ -41,7 +31,13 @@ export default {
   name: 'HeaderBar',
   data () {
     return {
+      activeIndex: '/',
       msg: 'Welcome to CoinDrama'
+    }
+  },
+  methods: {
+    handleSelect (key, keyPath) {
+      console.log(key, keyPath)
     }
   }
 }
@@ -58,21 +54,11 @@ h1 {
   .el-col {
     border-radius: 4px;
   }
-  .bg-purple-dark {
-    background: #99a9bf;
-  }
-  .bg-purple {
-    background: #d3dce6;
-  }
-  .bg-purple-light {
-    background: #e5e9f2;
-  }
   .grid-content {
     border-radius: 4px;
     min-height: 36px;
   }
   .row-bg {
-    padding: 2px 0;
-    background-color: #f9fafc;
+    padding: 1px 0;
   }
 </style>

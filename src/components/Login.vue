@@ -1,6 +1,6 @@
 <template>
   <div class="loginPage">
-    <h1>登录</h1>
+    <h1>Login</h1>
       <el-form>
         <el-form-item label="user">
           <el-input type="text" id="user" v-model="formName.user" @blur="inputBlur('user',formName.user)"></el-input>
@@ -10,8 +10,8 @@
                 <el-input type="password" id="password" v-model="formName.password" @blur="inputBlur('password',formName.password)"></el-input>
                 <p>{{formName.passwordError}}</p>
             </el-form-item>
-            <el-button type="primary" @click="submitForm('formName')" v-bind:disabled="formName.beDisabled">提交</el-button>
-            <el-button @click="resetForm">重置</el-button>
+            <el-button type="primary" @click="submitForm('formName')" v-bind:disabled="formName.beDisabled">Submit</el-button>
+            <el-button @click="resetForm">Reset</el-button>
         </el-form>
   </div>
 </template>
@@ -24,14 +24,14 @@ export default {
   name: '',
   data () {
     return {
-      formName: {// 表单中的参数
+      formName: {// param in form
         user: '',
         userError: '',
         password: '',
         passwordError: '',
         beDisabled: true
       },
-      beShow: false// 传值给父组件
+      beShow: false// Pass to parent
     }
   },
 
@@ -49,7 +49,7 @@ export default {
       this.formName.passwordError = ''
     },
     submitForm: function (formName) {
-      // 与父组件通信传值
+      // Communicate with parent
       // this.$emit('showState', [this.beShow,this.formName.user])
       // 提交user password
       var user
@@ -67,18 +67,18 @@ export default {
     inputBlur: function (errorItem, inputContent) {
       if (errorItem === 'user') {
         if (inputContent === '') {
-          this.formName.userError = '用户名不能为空'
+          this.formName.userError = 'UserName could not be empty'
         } else {
           this.formName.userError = ''
         }
       } else if (errorItem === 'password') {
         if (inputContent === '') {
-          this.formName.passwordError = '密码不能为空'
+          this.formName.passwordError = 'Password could not be empty'
         } else {
           this.formName.passwordError = ''
         }
       }
-      // 对于按钮的状态进行修改
+      // Update button status
       if (this.formName.user !== '' && this.formName.password !== '') {
         this.formName.beDisabled = false
       } else {
@@ -89,32 +89,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 h1 {
   font-weight: normal;
-  text-align: left;
+  text-align: center;
 }
-.el-row {
-    margin-bottom: 1px;
-  }
-  .el-col {
-    border-radius: 4px;
-  }
-  .bg-purple-dark {
-    background: #99a9bf;
-  }
-  .bg-purple {
-    background: #d3dce6;
-  }
-  .bg-purple-light {
-    background: #e5e9f2;
-  }
-  .grid-content {
-    border-radius: 4px;
-    min-height: 36px;
-  }
-  .row-bg {
-    padding: 2px 0;
-    background-color: #f9fafc;
-  }
 </style>
